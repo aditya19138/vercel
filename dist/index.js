@@ -7,4 +7,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
+app.post("/deploy");
+// Start the server
 app.listen(3000);
+console.log("listening on port 3000");
