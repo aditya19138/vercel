@@ -25,6 +25,7 @@ const s3 = new aws_sdk_1.S3({
 // filePath => /Users/username/vercel/output/l23hfjkkf/src/index.ts
 // function to upload a file in s3 bucket given filePath and fileName
 const uploadFile = (fileName, localFilePath) => __awaiter(void 0, void 0, void 0, function* () {
+    // console.log(process.env.ACCESS_KEY_ID, process.env.SECRET_ACCESS_KEY, process.env.ENDPOINT)
     const fileContent = fs_1.default.readFileSync(localFilePath);
     const params = {
         Bucket: "vercel",

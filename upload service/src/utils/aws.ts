@@ -13,14 +13,15 @@ const s3 = new S3({
 
 
 // function to upload a file in s3 bucket given filePath and fileName
-export const uploadFile = async (fileName: string,localFilePath: string) => {
+export const uploadFile = async (fileName: string, localFilePath: string) => {
+    // console.log(process.env.ACCESS_KEY_ID, process.env.SECRET_ACCESS_KEY, process.env.ENDPOINT)
     const fileContent = fs.readFileSync(localFilePath);
     const params = {
         Bucket: "vercel",
         Key: fileName,
         Body: fileContent
     };
-    await s3.upload(params, (err:any, data:any ) => {
+    await s3.upload(params, (err: any, data: any) => {
         if (err) {
             throw err;
         }
