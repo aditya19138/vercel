@@ -94,10 +94,10 @@ const uploadFile = (fileName, localFilePath) => __awaiter(void 0, void 0, void 0
     });
 });
 function copyFinalBuild(id) {
-    const folderPath = path_1.default.join(__dirname, `output/${id}/build`);
+    const folderPath = path_1.default.join(__dirname, `output/${id}/dist`);
     const allFilePaths = getAllFilePaths(folderPath);
     allFilePaths.forEach((file) => {
-        const fileName = `build/${id}/` + file.slice(folderPath.length + 1).replace(/\\/g, "/");
+        const fileName = `dist/${id}/` + file.slice(folderPath.length + 1).replace(/\\/g, "/");
         uploadFile(fileName, file.replace(/\\/g, "/"));
     });
 }

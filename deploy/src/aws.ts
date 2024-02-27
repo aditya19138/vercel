@@ -32,7 +32,7 @@ export async function downloadS3Folder(prefix: string) {
                 Bucket: "vercel",
                 Key: file.Key,
             }).createReadStream().pipe(finalOutputFile)
-                .on("finish", () => {
+                .on("finish", () => { 
                     console.log(`Downloaded ${file.Key}`);
                     resolve("");
                 });
@@ -85,10 +85,10 @@ const uploadFile = async (fileName: string, localFilePath: string) => {
 }
 
 export function copyFinalBuild(id: string) {
-    const folderPath = path.join(__dirname, `output/${id}/build`);
+    const folderPath = path.join(__dirname, `output/${id}/dist`);
     const allFilePaths = getAllFilePaths(folderPath);
     allFilePaths.forEach((file) => {
-        const fileName = `build/${id}/` + file.slice(folderPath.length + 1).replace(/\\/g, "/")
+        const fileName = `dist/${id}/` + file.slice(folderPath.length + 1).replace(/\\/g, "/")
         uploadFile(fileName, file.replace(/\\/g, "/"));
     });
 
